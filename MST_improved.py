@@ -12,21 +12,22 @@ class Graph:
 
         self.data = data
         self.size = len(self.data)
-    
-    def read(self, v): #graph.read([])
+
+    def read(self, v):  # graph.read([])
         self.data = v
         self.size = len(v)
 
     def findMinimum(self, E):
         return sorted(E, key=lambda x: x[2])[0]
 
+    @profile
     def process(self):
-        #array hold all vertices
-        T = [False] * self.size #[False, False, False, False]
-        #array of edges
-        L = [] # [vertexIdA, vertexIdB, weight]
+        # array hold all vertices
+        T = [False] * self.size  # [False, False, False, False]
+        # array of edges
+        L = []  # [vertexIdA, vertexIdB, weight]
         E = []
-        #do the algorithm
+        # do the algorithm
         T[0] = True
         for i in range(1, self.size):
             for j in range(self.size):
@@ -35,10 +36,9 @@ class Graph:
                         E.append([j, k, self.data[j][k]])
             targetEdge = self.findMinimum(E)
             L.append(targetEdge)
-            T[targetEdge[0]] = True
             T[targetEdge[1]] = True
             E = []
-                
+
         length = 0
         for ele in L:
             length += ele[2]
