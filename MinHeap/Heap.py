@@ -81,7 +81,7 @@ class Heap():
 
     def decreaseKey(self, v, dist):
         # Get the index of v in  heap array
-        i = self.pos[v] if isinstance(self.pos[v], int) else int(self.pos[v])
+        i = int(self.pos[v])
 
         # Get the node and update its dist value
         self.array[i][1] = dist
