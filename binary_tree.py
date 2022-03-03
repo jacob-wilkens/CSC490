@@ -37,13 +37,15 @@ class BinarySearchTree:
             return False
 
         return self.checkNode(self.root, value)
-
+    
     def checkNode(self, root, value):
-        if root.left is None or root.right is None:
-            return False
-        elif root.value > value:
+        if root.value > value:
+            if root.left is None:
+                return False
             return self.checkNode(root.left, value)
         elif root.value < value:
+            if root.right is None:
+                return False
             return self.checkNode(root.right, value)
         else:
             return True
@@ -62,6 +64,7 @@ def generateList(lowerBound, upperBound, step=1):
 def prepareTree(data, tree):
     for i in data:
         tree.insertion(i)
+        
 @profile
 def indexSearch(data, val):
     for i in data:
