@@ -39,13 +39,11 @@ class BinarySearchTree:
         return self.checkNode(self.root, value)
 
     def checkNode(self, root, value):
-        if root.value > value:
-            if root.left is None:
-                return False
+        if root.left is None or root.right is None:
+            return False
+        elif root.value > value:
             return self.checkNode(root.left, value)
         elif root.value < value:
-            if root.right is None:
-                return False
             return self.checkNode(root.right, value)
         else:
             return True
