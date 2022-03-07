@@ -58,6 +58,7 @@ class BinarySearchTree:
 
 def generateList(lowerBound, upperBound, step=1):
     ints = np.arange(lowerBound, upperBound + 1, step)
+    np.random.shuffle(ints)
     return ints
 
 def prepareTree(data, tree):
