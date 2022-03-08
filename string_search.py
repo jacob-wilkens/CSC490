@@ -18,7 +18,7 @@ def kmp(text, pattern):
         i += dict["next"]
 
 def kmpsub(text, pattern, index):
-    arr = [True] * m
+    arr = [True] * len(pattern)
 
     for i in range(len(pattern)):
         for j in range(i + 1):
