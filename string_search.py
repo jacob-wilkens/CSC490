@@ -27,7 +27,7 @@ def kmpsub(text, pattern, index):
 
     dict = {"pass": arr[0], "next": len(pattern)}
 
-    for i in range(1, m):
+    for i in range(1, len(pattern)):
         if arr[i] is True:
             dict["next"] = i
             break
