@@ -1,3 +1,5 @@
+import math
+
 class AddressHashTable:
 
     def __init__(self, size):
@@ -18,7 +20,7 @@ class AddressHashTable:
         self.values[index] = value
 
     def hash(self, key):
-        return hash(key) % self.size
+        return math.floor(self.size * ((sum([ord(character) for character in key]) * 0.618033) % 1))
 
     def search(self, key):
         index = self.hash(key)
