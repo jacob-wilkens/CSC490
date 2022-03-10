@@ -5,7 +5,7 @@ class ChainingHashTable:
         self.array = [[] for _ in range(self.size)]
 
     def hash(self, key):
-        return hash(key) % self.size
+        return sum([ord(character) for character in key]) % self.size
 
     def insert(self, key, value):
         key_exists = False
